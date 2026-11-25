@@ -21,7 +21,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 960px;
+    max-width: 1040px; /* Aumentado levemente para acomodar bem texto + foto lado a lado */
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -32,7 +32,7 @@ body {
     color: #ffffff;
     padding: 50px 0 40px;
     text-align: center;
-    border-bottom: 5px solid #d4a373; /* Tom terroso/trigo */
+    border-bottom: 5px solid #d4a373;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -62,7 +62,7 @@ body {
     margin: 0 auto 25px;
 }
 
-/* Botões de Navegação Rápida */
+/* Botões de Navegação Rápida com Flexbox */
 .nav-botoes {
     display: flex;
     flex-wrap: wrap;
@@ -114,7 +114,7 @@ body {
 
 h2, h3 {
     color: #1b4332;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     font-size: 1.65rem;
 }
 
@@ -127,47 +127,70 @@ p {
     margin-bottom: 15px;
 }
 
-/* IMAGENS PROPORCIONAIS */
-/* 1. Imagem dos 7 Princípios (Infográfico - mantém inteiro sem cortar) */
+/* 1. Imagem dos 7 Princípios (Flexbox centralizado) */
 .imagem-box {
     width: 100%;
     background-color: #f8f9fa;
     border-radius: 12px;
     padding: 15px;
     border: 1px solid #d8e2dc;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .imagem-box img {
     width: 100%;
     max-width: 720px;
-    height: auto; /* Mantém proporção exata */
+    height: auto;
     max-height: 550px;
     object-fit: contain;
     border-radius: 8px;
 }
 
-/* 2. Foto da Feira (Fotografia - moldura proporcional 16:9) */
+/* =========================================================
+   2. ORGANIZAÇÃO FLEXBOX: TEXTO + FOTO LADO A LADO
+   ========================================================= */
+.bloco-flex-eletiva {
+    display: flex;
+    flex-wrap: wrap; /* Quebra para baixo automaticamente em celulares */
+    align-items: flex-start; /* Alinha o topo do texto com o topo da foto */
+    gap: 28px;
+    margin-top: 10px;
+}
+
+.coluna-texto {
+    flex: 1 1 440px; /* Cresce, encolhe e tem largura base de 440px */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.coluna-foto {
+    flex: 1 1 380px; /* Fica ao lado do texto em telas grandes */
+    display: flex;
+    flex-direction: column;
+}
+
 .foto-feira-container {
-    margin: 22px 0;
+    width: 100%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
     background-color: #e9ecef;
-    position: relative;
 }
 
 .foto-feira-wrapper {
     width: 100%;
-    aspect-ratio: 16 / 9; /* Garante proporção moderna sem distorcer */
-    max-height: 460px;
+    aspect-ratio: 4 / 3; /* Proporção equilibrada para ficar ao lado do texto */
+    max-height: 420px;
     overflow: hidden;
 }
 
 .foto-feira-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Preenche o quadro mantendo a proporção real da foto */
+    object-fit: cover;
     object-position: center;
     display: block;
     transition: transform 0.4s ease;
@@ -180,8 +203,8 @@ p {
 .legenda-foto {
     background-color: #1b4332;
     color: #ffffff;
-    padding: 10px 16px;
-    font-size: 0.9rem;
+    padding: 12px 16px;
+    font-size: 0.88rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -234,21 +257,38 @@ p {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Galeria de Vídeos Proporcional */
+/* =========================================================
+   3. GALERIA DE VÍDEOS COM FLEXBOX
+   ========================================================= */
+.secao-videos-wrapper {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #d8e2dc;
+}
+
+.texto-chamada-videos {
+    font-weight: 500;
+    color: #1b4332;
+}
+
 .galeria-videos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch; /* Garante que os dois cards tenham a mesma altura */
+    gap: 22px;
+    margin-top: 15px;
 }
 
 .video-item {
+    flex: 1 1 340px; /* Ficam lado a lado no PC e empilhados no celular */
     background-color: #f4f7f5;
     border: 1px solid #d8e2dc;
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .video-item video {
@@ -259,13 +299,18 @@ p {
 }
 
 .legenda-video {
-    padding: 12px 15px;
-    font-size: 0.9rem;
+    padding: 14px 16px;
+    font-size: 0.92rem;
     font-weight: 600;
     color: #1b4332;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
 }
 
-/* CAIXAS DE TEXTO E INTERAÇÃO (MURAL DA COOPERATIVA) */
+/* =========================================================
+   4. FORMULÁRIO E MURAL COM FLEXBOX
+   ========================================================= */
 .form-agro {
     display: flex;
     flex-direction: column;
@@ -274,17 +319,21 @@ p {
 }
 
 .linha-inputs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 15px;
 }
 
+.linha-inputs .campo-grupo {
+    flex: 1 1 260px;
+}
+
 @media (max-width: 600px) {
-    .linha-inputs {
-        grid-template-columns: 1fr;
-    }
     .topo h1 {
         font-size: 1.9rem;
+    }
+    .card {
+        padding: 20px;
     }
 }
 
