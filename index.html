@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo.css">
-    <title>Cooperar - Cooperativa Escolar</title>
+    <title>Cooperar - Cooperativa Escolar | CEEPAR Arlindo Ribeiro</title>
+    <!-- Conectando o arquivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header class="topo">
         <div class="container">
-            <span class="badge">Cooperativa Escolar • Agropecuária</span>
+            <span class="badge">🌱 Cooperativa Escolar • Agropecuária</span>
             <h1>O que é a Cooperar?</h1>
             <p class="subtitulo">Educação cooperativista, prática de campo e protagonismo estudantil em Guarapuava (PR).</p>
+            
+            <!-- Botões de Navegação -->
+            <nav class="nav-botoes">
+                <a href="#principios" class="btn-nav">7 Princípios</a>
+                <a href="#eletiva" class="btn-nav">Eletiva CooperaCampo</a>
+                <a href="#videos" class="btn-nav">Vídeos</a>
+                <a href="#participar" class="btn-nav">Enviar Sugestão</a>
+            </nav>
         </div>
     </header>
 
     <main class="container conteudo-principal">
+        <!-- Apresentação -->
         <section class="card destaque-institucional">
             <p>A <strong>Cooperar - Cooperativa Escolar Arlindo Ribeiro</strong> é uma cooperativa escolar ativa em Guarapuava (PR), vinculada ao ambiente de educação profissional técnica (<strong>CEEPAR - Centro Estadual de Educação Profissional Arlindo Ribeiro</strong>).</p>
         </section>
 
-        <section class="card secao-principios">
+        <!-- Seção 7 Princípios -->
+        <section id="principios" class="card secao-principios">
             <h2>Os 7 Princípios do Cooperativismo</h2>
             <p class="descricao-secao">Valores e práticas que orientam a gestão democrática e o trabalho coletivo na escola e no campo.</p>
             <div class="imagem-box">
@@ -28,15 +40,38 @@
             </div>
         </section>
 
-        <section class="card secao-eletiva">
+        <!-- Seção Eletiva CooperaCampo -->
+        <section id="eletiva" class="card secao-eletiva">
             <h3>Integração com a Eletiva CooperaCampo</h3>
             <p>A partir de agosto de 2026, a cooperativa começou uma integração com a eletiva de cooperativismo, reunindo alunos de 1° e 2° anos, integrando a aprendizagem do curso técnico em agropecuária com a cooperativa escola.</p>
+            
             <p>Durante a eletiva, os alunos puderam aprender a criar planilhas compartilhadas com dados reais da cooperativa, auxiliando na tabulação desses dados. Além disso, participaram de momentos de conversa com os membros da cooperativa para entender o que é a Cooperar, seu funcionamento, seus objetivos dentro da instituição. Os alunos se tornaram cooperados e assim podem participar das reuniões do conselho.</p>
-            <p>Surgiram, durante a eletiva, projetos que vem sendo desenvolvidos pelos estudantes. O primeiro foi o projeto aluno na feira da Cooperar. Os alunos ajudam desde a colheita dos podutos que serão vendidos na feira, até a venda efetiva dos produtos.</p>
-            <p>Além disso, eles desenvolveram uma planilha de entrada e saída de produtos para auxiliar a Cooperar no controle de lucro nas feiras semanais, deixando o processo mais rápido e automatizado.</p>
-            <img src="IMG-20261113-WA0000.jpg" alt="Alunos participando da feira semanal da Cooperar">
-            <p>Além disso, os alunos desenvolveram o projeto da estufa de morangos. Como o colégio não produz essa cultura, os alunos resolveram fazer a estufa e implementar esse cultivo aos cuidados da eletiva CooperaCampo. Esse projeto deverá ser continuado no próximo ano.</p>
-            <p>Abaixo estão alguns registros das atividades desenvolvidas na eletiva juntamente com a cooperativa.</p>
+
+            <!-- Conteúdo extra controlado por botão de interação -->
+            <div id="mais-detalhes" class="texto-oculto">
+                <p>Surgiram, durante a eletiva, projetos que vêm sendo desenvolvidos pelos estudantes. O primeiro foi o projeto <strong>Aluno na Feira da Cooperar</strong>. Os alunos ajudam desde a colheita dos produtos que serão vendidos na feira, até a venda efetiva dos produtos.</p>
+                <p>Além disso, eles desenvolveram uma planilha de entrada e saída de produtos para auxiliar a Cooperar no controle de lucro nas feiras semanais, deixando o processo mais rápido e automatizado.</p>
+                <p>Os alunos também desenvolveram o projeto da <strong>estufa de morangos</strong>. Como o colégio não produz essa cultura, os alunos resolveram fazer a estufa e implementar esse cultivo aos cuidados da eletiva CooperaCampo. Esse projeto deverá ser continuado no próximo ano.</p>
+            </div>
+
+            <button type="button" id="btn-ler-mais" class="btn-acao" onclick="alternarTexto()">
+                📖 Ler mais sobre os projetos (Feira e Estufa de Morangos)
+            </button>
+
+            <!-- Foto Proporcional da Feira -->
+            <div class="foto-feira-container">
+                <div class="foto-feira-wrapper">
+                    <img id="foto-feira" src="IMG-20261113-WA0000.jpg" alt="Alunos participando da feira semanal da Cooperar">
+                </div>
+                <div class="legenda-foto">
+                    <span>📸 Alunos participando da feira semanal da Cooperar</span>
+                    <button type="button" class="btn-acao btn-secundario" onclick="alternarZoomFoto()">
+                        🔍 Ajustar / Expandir Foto
+                    </button>
+                </div>
+            </div>
+
+            <p id="videos">Abaixo estão alguns registros das atividades desenvolvidas na eletiva juntamente com a cooperativa.</p>
 
             <div class="galeria-videos">
                 <article class="video-item">
@@ -56,13 +91,131 @@
                 </article>
             </div>
         </section>
+
+        <!-- Nova Seção com Caixas de Texto e Botões de Interação -->
+        <section id="participar" class="card">
+            <h3>🌾 Espaço do Cooperado e Comunidade Escolar</h3>
+            <p class="descricao-secao">Deixe uma sugestão de novo cultivo, ideia para a feira semanal ou feedback sobre a eletiva CooperaCampo.</p>
+
+            <form class="form-agro" onsubmit="enviarSugestao(event)">
+                <div class="linha-inputs">
+                    <div class="campo-grupo">
+                        <label for="nome">Seu Nome:</label>
+                        <input type="text" id="nome" placeholder="Ex: João Silva" required>
+                    </div>
+                    <div class="campo-grupo">
+                        <label for="vinculo">Turma ou Vínculo:</label>
+                        <select id="vinculo">
+                            <option value="Aluno(a) - 1º Ano Agropecuária">Aluno(a) - 1º Ano Agropecuária</option>
+                            <option value="Aluno(a) - 2º Ano Agropecuária">Aluno(a) - 2º Ano Agropecuária</option>
+                            <option value="Aluno(a) - 3º Ano Agropecuária">Aluno(a) - 3º Ano Agropecuária</option>
+                            <option value="Professor(a) / Servidor(a)">Professor(a) / Servidor(a)</option>
+                            <option value="Comunidade / Visitante">Comunidade / Visitante</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="cultura">Sugestão de Cultivo ou Produto para a Feira (Opcional):</label>
+                    <input type="text" id="cultura" placeholder="Ex: Hortaliças orgânicas, mel, mudas frutíferas...">
+                </div>
+
+                <div class="campo-grupo">
+                    <label for="mensagem">Sua Mensagem ou Ideia:</label>
+                    <textarea id="mensagem" placeholder="Escreva aqui sua sugestão para a Cooperar..." required></textarea>
+                </div>
+
+                <div class="botoes-form">
+                    <button type="submit" class="btn-acao">✅ Publicar no Mural</button>
+                    <button type="button" class="btn-acao btn-secundario" onclick="limparFormulario()">🧹 Limpar Campos</button>
+                </div>
+            </form>
+
+            <!-- Mural onde as mensagens aparecem -->
+            <div id="mural-respostas" class="mural-respostas">
+                <div class="item-mural">
+                    <strong>Projeto Estufa de Morangos</strong>
+                    <small>Equipe Eletiva CooperaCampo • Destaque</small>
+                    <p style="margin-bottom: 0;">Cultivo em implantação pelos alunos do 1º e 2º ano para ampliar os produtos da feira semanal!</p>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="rodape">
         <div class="container">
-            <p>Cooperar • CEEPAR Arlindo Ribeiro — Guarapuava, PR</p>
+            <p><strong>Cooperar</strong> • CEEPAR Arlindo Ribeiro — Guarapuava, PR</p>
             <p>Desenvolvido pela Professora Camila Kulek de Andrade</p>
         </div>
     </footer>
+
+    <!-- Scripts de Interação -->
+    <script>
+        // Botão Ler Mais / Ler Menos
+        function alternarTexto() {
+            const bloco = document.getElementById('mais-detalhes');
+            const botao = document.getElementById('btn-ler-mais');
+            
+            bloco.classList.toggle('aberto');
+            
+            if (bloco.classList.contains('aberto')) {
+                botao.innerHTML = '🔼 Recolher detalhes dos projetos';
+            } else {
+                botao.innerHTML = '📖 Ler mais sobre os projetos (Feira e Estufa de Morangos)';
+            }
+        }
+
+        // Botão para alternar enquadramento da foto (Cortar para preencher vs Mostrar foto inteira)
+        let fotoInteira = false;
+        function alternarZoomFoto() {
+            const wrapper = document.querySelector('.foto-feira-wrapper');
+            const img = document.getElementById('foto-feira');
+            
+            fotoInteira = !fotoInteira;
+            if (fotoInteira) {
+                wrapper.style.aspectRatio = 'auto';
+                wrapper.style.maxHeight = 'none';
+                img.style.objectFit = 'contain';
+            } else {
+                wrapper.style.aspectRatio = '16 / 9';
+                wrapper.style.maxHeight = '460px';
+                img.style.objectFit = 'cover';
+            }
+        }
+
+        // Adicionar mensagem das caixas de texto ao mural
+        function enviarSugestao(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value.trim();
+            const vinculo = document.getElementById('vinculo').value;
+            const cultura = document.getElementById('cultura').value.trim();
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            if (!nome || !mensagem) return;
+
+            const mural = document.getElementById('mural-respostas');
+            const novoItem = document.createElement('div');
+            novoItem.className = 'item-mural';
+
+            const tagCultura = cultura ? ` • 🌱 Sugestão: <strong>${cultura}</strong>` : '';
+
+            novoItem.innerHTML = `
+                <strong>${nome}</strong>
+                <small>${vinculo}${tagCultura}</small>
+                <p style="margin-bottom: 0;">${mensagem}</p>
+            `;
+
+            mural.prepend(novoItem);
+            limparFormulario();
+        }
+
+        // Limpar caixas de texto
+        function limparFormulario() {
+            document.getElementById('nome').value = '';
+            document.getElementById('cultura').value = '';
+            document.getElementById('mensagem').value = '';
+        }
+    </script>
 </body>
 </html>
