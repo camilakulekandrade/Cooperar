@@ -24,8 +24,8 @@ function alternarZoomFoto() {
         wrapper.style.maxHeight = 'none';
         img.style.objectFit = 'contain';
     } else {
-        wrapper.style.aspectRatio = '4 / 3';
-        wrapper.style.maxHeight = '420px';
+        wrapper.style.aspectRatio = '16 / 9';
+        wrapper.style.maxHeight = '360px';
         img.style.objectFit = 'cover';
     }
 }
